@@ -1,4 +1,5 @@
 services:
+# First Service - Webapp
   webapp:
     extends:
       file: common.yml
@@ -9,7 +10,7 @@ services:
     depends_on:
       - queue
       - db
-
+# Second Service - Queue
   queue_worker:
     extends:
       file: common.yml
