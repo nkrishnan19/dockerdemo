@@ -8,6 +8,7 @@ It mounts your application code inside the web container.
 Verify that the code is mounted by changing the message in
 `app.py`&mdash;say, from `Hello world!` to `Hello from Compose!`.
 
+Visit http://0.0.0.0:5000/ 
 Don't forget to refresh your browser to see the change!
 
 Run `docker-compose -f production.yml up`.
