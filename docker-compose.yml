@@ -1,20 +1,12 @@
-services:
-# First Service - Webapp
-  webapp:
-    extends:
-      file: common.yml
-      service: app
-    command: /code/run_web_app
-    ports:
-      - 8080:8080
-    depends_on:
-      - queue
-      - db
-# Second Service - Queue
-  queue_worker:
-    extends:
-      file: common.yml
-      service: app
-    command: /code/run_worker
-    depends_on:
-      - queue
+web:
+  extends:
+    file: common.yml
+    service: web
+  volumes:
+    - .:/code
+  links:
+    - redis
+  environment:
+    - REDIS_HOST=redis
+redis:
+  image: redis
